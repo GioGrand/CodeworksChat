@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import ChatDashboard from "../../features/chat/ChatDashboard";
+import LeftComponent from '../../features/LeftComponent/LeftComponent';
 
 const mapState = state => ({
   auth: state.firebase.auth
@@ -12,6 +13,7 @@ const mapState = state => ({
 class App extends Component {
   render() {
     const { auth } = this.props;
+    const authenticated = auth.isLoaded && !auth.isEmpty;
 
     return (
       <Row noGutters>
@@ -19,14 +21,14 @@ class App extends Component {
           md={6}
           className='leftside  d-flex justify-content-center align-items-center'
         >
-          1 of 2
+        <LeftComponent/>
         </Col>
         <Col
           xs={12}
           md={6}
           className='rightside d-flex flex-column justify-content-between align-items-center'
         >
-          <ChatDashboard />
+        {authenticated &&  <ChatDashboard />}  
         </Col>
       </Row>
     );

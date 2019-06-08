@@ -5,6 +5,7 @@ const TextInput = ({
   label,
   input,
   width,
+  className,
   type,
   placeholder,
   meta: { touched, error }
@@ -20,6 +21,7 @@ const TextInput = ({
         {...input}
         placeholder={placeholder}
         type={type}
+        className={className}
         
       />
 

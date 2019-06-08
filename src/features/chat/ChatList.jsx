@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { firestoreConnect } from "react-redux-firebase";
 import ChatListItem from "./ChatListItem";
 
 const mapState = state => ({
@@ -10,23 +7,15 @@ const mapState = state => ({
 
 class ChatList extends Component {
   render() {
-    const { chats } = this.props;
+    const { posts } = this.props;
     return (
-      <div className='overflow'>
-        {chats &&
-          chats.map(chat => {
-            return <ChatListItem chat={chat} />;
+      <div className='overflow d-flex flex-column'>
+        {posts &&
+          posts.map(post => {
+            return <ChatListItem post={post} />;
           })}
       </div>
     );
   }
 }
-export default compose(
-  connect(mapState),
-
-  firestoreConnect(props => [
-    {
-      collection: "chats"
-    }
-  ])
-)(ChatList);
+export default ChatList;

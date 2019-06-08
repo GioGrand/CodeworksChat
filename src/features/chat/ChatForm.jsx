@@ -14,25 +14,41 @@ const actions = {
 };
 
 class ChatForm extends Component {
+  handleSubmit = values => {
+    this.props.createChat(values);
+    this.props.reset();
+  };
+
   render() {
     const { loading, createChat, error } = this.props;
     return (
-      <Form onSubmit={this.props.handleSubmit(createChat)}>
-        <Field
-          name='content'
-          className='form-control'
-          placeholder='type your post here...'
-          type='text'
-          component={TextInput}
-        />
-        {error && (
-          <Form.Group controlId='formBasicEmail'>
-            <Form.Text className='text-muted'>{error}</Form.Text>
-          </Form.Group>
-        )}
-        <Button variant='primary' type='submit'>
-          {loading ? "Loading…" : "Submit"}
-        </Button>
+      <Form
+        autoComplete='off'
+        className='myForm'
+        onSubmit={this.props.handleSubmit(this.handleSubmit)}
+      >
+        <Row className='d-flex justify-content-between align-items-center'>
+          <Col md={10}>
+            <Field
+              name='content'
+              className='myFormControl'
+              placeholder='type your post here...'
+              type='text'
+              component={TextInput}
+              autoFocus={true}
+            />
+            {error && (
+              <Form.Group controlId='formBasicEmail'>
+                <Form.Text className='text-muted'>{error}</Form.Text>
+              </Form.Group>
+            )}
+          </Col>
+          <Col md={2}>
+            <Button variant='primary' type='submit'>
+              {loading ? "…" : ">"}
+            </Button>
+          </Col>
+        </Row>
       </Form>
     );
   }

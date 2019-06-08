@@ -14,22 +14,45 @@ export const createChat = post => async (
 ) => {
   const firebase = getFirebase();
   const firestore = getFirestore();
+  const myState = getState();
+  const personal_chat = myState.firebase.profile.personal_chat;
 
   try {
-      console.log(post)
+    console.log(personal_chat);
     dispatch(asyncActionStart());
-    // create the user in firebase auth
+
+    // create the user's post
+
     let createdPost = await firestore.add(
       {
         collection: "chats",
+        doc: personal_chat,
+        subcollections: [{ collection: "posts" }]
       },
       {
         content: post.content,
-        createdAt: new Date(),
+        type: "right",
+        createdAt: new Date()
       }
     );
     console.log(createdPost);
-    // update the auth profile
+
+    // create the fake response
+
+    let createdResponse = await setTimeout(() => {
+      firestore.add(
+        {
+          collection: "chats",
+          doc: personal_chat,
+          subcollections: [{ collection: "posts" }]
+        },
+        {
+          content: "hi, this is an automatic response",
+          type: "left",
+          createdAt: new Date()
+        }
+      );
+    }, 2500);
 
     dispatch(asyncActionFinish());
   } catch (error) {

@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700");
 
-
+body,
+html {
+  margin: 0;
+  height: 100%;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.25;
+  color: inherit;
+}
 
 .btn:focus,
 .btn:active {
@@ -38,21 +46,72 @@ h6,
   width: 100%;
 }
 
+.overflow {
+  height: 900vh;
+  overflow-y: scroll;
+  width: 100%;
+  padding-top: 50px;
+}
+
 .leftside {
   background-color: red;
 }
 
 .rightside {
-  background-color: blue;
-}
-
-.overflow {
-  overflow-y: scroll;
-  width: 100%
+  background-color: white;
 }
 
 @media (max-width: 768px) {
   .leftside {
     display: none !important;
   }
+}
+
+.myMedia {
+  max-width: 60%;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.myMedia2 {
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.chatContent {
+  margin: 0;
+}
+
+.myForm {
+  width: 100%;
+  background-color: whitesmoke;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.myFormControl {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: whitesmoke;
+  background-clip: padding-box;
+  border: 0px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.myForm-control:focus {
+  color: #495057;
+  background-color: red !important ; 
+  border-color: none;
+  outline: 0;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25)
 }
