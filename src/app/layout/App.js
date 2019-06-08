@@ -14,11 +14,10 @@ class App extends Component {
     const { auth } = this.props;
 
     return (
-      <Row>
+      <Row noGutters>
         <Col
-          xs={12}
           md={6}
-          className='leftside d-flex justify-content-center align-items-center'
+          className='leftside  d-flex justify-content-center align-items-center'
         >
           1 of 2
         </Col>
