@@ -12,14 +12,10 @@ const mapState = state => ({
 class ChatDashboard extends Component {
   render() {
     return (
-      <Col>
-        <Row className='chatRow'>
-          <ChatList />
-        </Row>
-        <Row className='formRow'>
-          <ChatForm />
-        </Row>
-      </Col>
+      <React.Fragment>
+        <ChatList />
+        <ChatForm />
+      </React.Fragment>
     );
   }
 }

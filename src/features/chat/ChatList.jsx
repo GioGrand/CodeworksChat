@@ -12,7 +12,7 @@ class ChatList extends Component {
   render() {
     const { chats } = this.props;
     return (
-      <div>
+      <div className='overflow'>
         {chats &&
           chats.map(chat => {
             return <ChatListItem chat={chat} />;

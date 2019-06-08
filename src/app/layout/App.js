@@ -24,7 +24,7 @@ class App extends Component {
         <Col
           xs={12}
           md={6}
-          className='rightside d-flex justify-content-center align-items-center'
+          className='rightside d-flex flex-column justify-content-between align-items-center'
         >
           <ChatDashboard />
         </Col>

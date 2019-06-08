@@ -19,7 +19,6 @@ class ChatForm extends Component {
     return (
       <Form onSubmit={this.props.handleSubmit(createChat)}>
         <Field
-          label='chatPost'
           name='content'
           className='form-control'
           placeholder='type your post here...'

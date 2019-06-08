@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700");
 
-body,
-html {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-}
+
 
 .btn:focus,
 .btn:active {
@@ -41,7 +36,6 @@ h6,
 .rightside {
   height: 100vh;
   width: 100%;
-  overflow-y: scroll;
 }
 
 .leftside {
@@ -52,15 +46,9 @@ h6,
   background-color: blue;
 }
 
-.chatRow {
-  height: 90vh;
-  overflow: scroll;
-}
-
-.formRow {
-  height: 10vh;
-  background-color: green;
-  overflow: hidden;
+.overflow {
+  overflow-y: scroll;
+  width: 100%
 }
 
 @media (max-width: 768px) {
