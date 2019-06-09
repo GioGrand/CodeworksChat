@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ChatForm from "./ChatForm";
 import ChatList from "./ChatList";
 import { Row, Col } from "react-bootstrap";
+import Fade from "react-reveal/Fade";
 
 import { firestoreConnect } from "react-redux-firebase";
 import { anonymousCreateChat } from "../Auth/authActions";

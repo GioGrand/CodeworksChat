@@ -6,6 +6,7 @@ import { withFirebase } from "react-redux-firebase";
 import { compose } from "redux";
 import { anonymousCreateChat } from "./../Auth/authActions";
 
+
 const mapState = state => ({
   auth: state.firebase.auth
 });
@@ -19,7 +20,7 @@ class LeftComponent extends Component {
     if (this.props.auth.isLoaded && !this.props.auth.isEmpty) {
       console.log("already logged");
     } else {
-      this.props.anonymousCreateChat();
+      // this.props.anonymousCreateChat();
     }
   }
 

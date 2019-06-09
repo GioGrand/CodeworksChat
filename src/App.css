@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i|Roboto+Condensed:400,700|Roboto:300,400,400i&display=swap");
 
 body,
 html {
   margin: 0;
   height: 100%;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   line-height: 1.25;
   color: inherit;
@@ -28,7 +28,6 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 1em;
-  font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   line-height: 1.25;
   color: inherit;
@@ -54,7 +53,15 @@ h6,
 }
 
 .leftside {
-  background-color: red;
+  /* The image used */
+  background-image: url("./assets/images/home.jpg");
+
+  /* Full height */
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .rightside {
@@ -93,12 +100,15 @@ h6,
 }
 
 .myFormControl {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 1.25;
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
+
   line-height: 1.5;
   color: #495057;
   background-color: whitesmoke;
@@ -110,8 +120,95 @@ h6,
 
 .myForm-control:focus {
   color: #495057;
-  background-color: red !important ; 
+  background-color: red !important ;
   border-color: none;
   outline: 0;
-  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25)
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25);
+}
+
+.rightComponent {
+  width: 70%;
+  border: 1px #000;
+}
+
+.playfairTag {
+  margin: 0 0 4px;
+  font-family: "Playfair Display", serif !important;
+  line-height: 1.631578947368421em;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+.h1tag {
+  letter-spacing: -0.02em;
+  color: #151636;
+  font-size: 50px;
+  line-height: 1.24em;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0px !important;
+}
+
+.Separator {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 9px 0 0;
+  width: 72px;
+  height: 3px;
+  background-color: #000;
+}
+
+.pTag {
+  margin: 16px 0 0;
+  margin-bottom: 1rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.25;
+  color: inherit;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  overflow-x: hidden !important;
+  -webkit-font-smoothing: antialiased;
+}
+.mainButton {
+  position: relative;
+  display: inline-block;
+  background-color: #ff5059;
+  vertical-align: middle;
+  width: auto;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  line-height: 1.6em;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: lowercase;
+  outline: 0;
+  border: 0px;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+  padding: 9px 51px;
+}
+
+.mediaBody2 {
+  padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.name {
+  font-family: "Playfair Display", serif;
+  color: #ff5059;
+  font-style: italic;
 }
