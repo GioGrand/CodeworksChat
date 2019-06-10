@@ -8,6 +8,7 @@ html {
   font-weight: 300;
   line-height: 1.25;
   color: inherit;
+  overflow-x: hidden;
 }
 
 .btn:focus,
@@ -84,6 +85,12 @@ h6,
 
 .myMedia2 {
   max-width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.myMedia3 {
+  max-width: 20%;
   display: flex;
   align-items: center;
 }

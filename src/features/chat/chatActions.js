@@ -3,7 +3,10 @@ import history from "../../app/common/util/history";
 import {
   asyncActionStart,
   asyncActionFinish,
-  asyncActionError
+  asyncActionError,
+  asyncPostStart,
+  asyncPostFinish,
+  asyncPostError
 } from "../async/asyncActions";
 import moment from "moment";
 
@@ -38,7 +41,10 @@ export const createChat = post => async (
     console.log(createdPost);
 
     // create the fake response
-
+    setTimeout(() => {
+      dispatch(asyncPostStart());
+    }, 500)
+    
     let createdResponse = await setTimeout(() => {
       firestore.add(
         {
@@ -52,6 +58,7 @@ export const createChat = post => async (
           createdAt: new Date()
         }
       );
+      dispatch(asyncPostFinish());
     }, 2500);
 
     dispatch(asyncActionFinish());

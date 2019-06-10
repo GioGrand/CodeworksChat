@@ -36,9 +36,9 @@ class LeftComponent extends Component {
     return (
       <div>
         {authenticated ? (
-          <h1 onClick={this.handleSignOut}>Logout</h1>
+          <h5 onClick={this.handleSignOut}>Logout</h5>
         ) : (
-          <h1>Hiya</h1>
+          <h1></h1>
         )}
       </div>
     );

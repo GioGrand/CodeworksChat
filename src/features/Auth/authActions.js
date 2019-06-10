@@ -3,7 +3,10 @@ import history from "../../app/common/util/history";
 import {
   asyncActionStart,
   asyncActionFinish,
-  asyncActionError
+  asyncActionError,
+  asyncPostStart,
+  asyncPostFinish,
+  asyncPostError,
 } from "../async/asyncActions";
 
 export const anonymousCreateChat = address => async (
@@ -56,7 +59,7 @@ export const triggerFirstQuestion = personal_chat => async (
   const firebase = getFirebase();
   const firestore = getFirestore();
   try {
-    dispatch(asyncActionStart());
+    dispatch(asyncPostStart());
     // create the user in firebase auth
 
     await setTimeout(() => {
@@ -73,13 +76,14 @@ export const triggerFirstQuestion = personal_chat => async (
           level: "1"
         }
       );
-    }, 1000);
-
-    dispatch(asyncActionFinish());
+      dispatch(asyncPostFinish());
+    }, 2500);
+  
+    
     //      await history.push("/register");
   } catch (error) {
     console.log(error);
-    dispatch(asyncActionError());
+    dispatch(asyncPostError());
     throw new SubmissionError({
       _error: error.message
     });

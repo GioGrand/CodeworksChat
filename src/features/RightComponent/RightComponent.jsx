@@ -6,8 +6,12 @@ import { withFirebase } from "react-redux-firebase";
 import { compose } from "redux";
 import { anonymousCreateChat } from "./../Auth/authActions";
 
+
+
 const mapState = state => ({
-  auth: state.firebase.auth
+  auth: state.firebase.auth,
+  loading: state.async.loading
+
 });
 
 const actions = {
@@ -21,6 +25,7 @@ class RightComponent extends Component {
   };
 
   render() {
+    const {loading} = this.props
     return (
       <div className='rightComponent'>
         <div class=''>
@@ -31,7 +36,8 @@ class RightComponent extends Component {
             Try our AI powered chat that will talk with your client and collect precious information about your brief in an human way
           </p>
         </div>
-        <Button className='mainButton' onClick={this.handleSignIn} >Start</Button>
+       
+        <Button className='mainButton' onClick={this.handleSignIn} >  {loading ?  'Loading' : "Start"}</Button>
       </div>
     );
   }
