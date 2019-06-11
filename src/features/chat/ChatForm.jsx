@@ -28,7 +28,7 @@ class ChatForm extends Component {
           onSubmit={this.props.handleSubmit(this.handleSubmit)}
         >
           <Row className='d-flex justify-content-between align-items-center'>
-            <Col md={10}>
+            <Col xs={10} md={10}>
               <Field
                 name='content'
                 className='myFormControl'
@@ -43,7 +43,7 @@ class ChatForm extends Component {
                 </Form.Group>
               )}
             </Col>
-            <Col md={2}>
+            <Col xs={2} md={2}>
               <Button variant='primary mainButton' type='submit'>
                 {loading ? "…" : ">"}
               </Button>

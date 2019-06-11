@@ -6,7 +6,7 @@ import {
   asyncActionError,
   asyncPostStart,
   asyncPostFinish,
-  asyncPostError,
+  asyncPostError
 } from "../async/asyncActions";
 
 export const anonymousCreateChat = address => async (
@@ -62,6 +62,17 @@ export const triggerFirstQuestion = personal_chat => async (
     dispatch(asyncPostStart());
     // create the user in firebase auth
 
+    await firestore.set(
+      {
+        collection: "quotations",
+        doc: personal_chat
+      },
+      {
+        level_1_name_asked: true,
+        createdAt: new Date()
+      }
+    );
+
     await setTimeout(() => {
       firestore.add(
         {
@@ -70,7 +81,8 @@ export const triggerFirstQuestion = personal_chat => async (
           subcollections: [{ collection: "posts" }]
         },
         {
-          content: "Hi, my name is Adam, and I'll help you with your new project. Can I know your name first?",
+          content:
+            "Hi, my name is Adam, and I'll help you with the quotation for your flat. Can I know your name first?",
           type: "left",
           createdAt: new Date(),
           level: "1"
@@ -78,8 +90,7 @@ export const triggerFirstQuestion = personal_chat => async (
       );
       dispatch(asyncPostFinish());
     }, 2500);
-  
-    
+
     //      await history.push("/register");
   } catch (error) {
     console.log(error);

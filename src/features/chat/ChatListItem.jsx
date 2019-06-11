@@ -3,7 +3,9 @@ import { Media, Image } from "react-bootstrap";
 
 class ChatListItem extends Component {
   render() {
-    const {post} = this.props
+    const {post, chat} = this.props
+    console.log(chat)
+   // const client = chat.client_name || 'you'
     return (
       <Media className={ post.type === 'right' ? 'mediaBody2 myMedia ml-5 mr-5 mt-3 mb-3' : 'mediaBody2 myMedia2 ml-5 mr-5 mt-3 mb-3'}>
         <Image

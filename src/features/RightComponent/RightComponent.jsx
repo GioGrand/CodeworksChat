@@ -30,7 +30,7 @@ class RightComponent extends Component {
       <div className='rightComponent'>
         <div class=''>
           <h5 class='playfairTag'>read my mind </h5>
-          <h1 class='h1tag'>A better way to collect a brief from your client </h1>
+          <h1 class='h1tag'>A better way to create a quotation from your refurbishment </h1>
           <div class='Separator' />
           <p class='pTag'>
             Try our AI powered chat that will talk with your client and collect precious information about your brief in an human way

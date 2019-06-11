@@ -25,13 +25,13 @@ class ChatList extends Component {
   }
 
   render() {
-    const { posts, loadingPost } = this.props;
+    const { posts, loadingPost, chat } = this.props;
     return (
       <Fade>
         <div className='overflow d-flex flex-column'>
           {posts &&
             posts.map(post => {
-              return <ChatListItem post={post} />;
+              return <ChatListItem post={post} chat={chat} />;
             })}
           {loadingPost && (
             <Media className='mediaBody2 myMedia3 ml-5 mr-5 mt-3 mb-3'>
