@@ -24,7 +24,9 @@ export const createChat = post => async (
     console.log(personal_chat);
     dispatch(asyncActionStart());
 
+    ///////////////////////////////////////////////////////////////////////////////////
     // create the user's post
+    ///////////////////////////////////////////////////////////////////////////////////
 
     let createdPost = await firestore.add(
       {
@@ -40,9 +42,15 @@ export const createChat = post => async (
     );
     console.log(createdPost);
 
-    // get the quotation
+    ///////////////////////////////////////////////////////////////////////////////////
+    // check level of response
+    ///////////////////////////////////////////////////////////////////////////////////
 
     let tempQuotation = await firestore.get(`quotations/${personal_chat}`);
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // if level one
+    ///////////////////////////////////////////////////////////////////////////////////
 
     if (
       tempQuotation.data().level_1_name_asked &&
@@ -71,7 +79,7 @@ export const createChat = post => async (
             subcollections: [{ collection: "posts" }]
           },
           {
-            content: "Thanks " + post.content +  ". Is your project in London?",
+            content: "Thanks " + post.content + ". Is your project in London?",
             type: "left",
             createdAt: new Date(),
             clientName: updatedQuotation.client_name
@@ -80,6 +88,10 @@ export const createChat = post => async (
         dispatch(asyncPostFinish());
       }, 2500);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // if level two
+    ///////////////////////////////////////////////////////////////////////////////////
 
     if (
       tempQuotation.data().level_1_name_asked &&
@@ -113,6 +125,11 @@ export const createChat = post => async (
         dispatch(asyncPostFinish());
       }, 2500);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // if level three
+    ///////////////////////////////////////////////////////////////////////////////////
+
     if (
       tempQuotation.data().level_1_name_asked &&
       tempQuotation.data().level_2_location_asked &&
@@ -148,6 +165,11 @@ export const createChat = post => async (
         dispatch(asyncPostFinish());
       }, 2500);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    // if level four
+    ///////////////////////////////////////////////////////////////////////////////////
+
     if (
       tempQuotation.data().level_1_name_asked &&
       tempQuotation.data().level_2_location_asked &&
@@ -164,6 +186,10 @@ export const createChat = post => async (
         { collection: "quotations", doc: personal_chat },
         updatedQuotation
       );
+
+      ///////////////////////////////////////////////////////////////////////////////////
+      // retrieve quotation from firestore and do calculations, create quote
+      ///////////////////////////////////////////////////////////////////////////////////
 
       let tempQuotation2 = await firestore.get(`quotations/${personal_chat}`);
 
@@ -183,8 +209,13 @@ export const createChat = post => async (
           },
           {
             content:
-        
-              "Awesome " +  tempQuotation.data().client_name + ". Based on the info provided I can estimate that for a " + updatedQuotation.type + " refurbishment of " + tempQuotation.data().size + " sqm in London the cost would be £13000",
+              "Awesome " +
+              tempQuotation.data().client_name +
+              ". Based on the info provided I can estimate that for a " +
+              updatedQuotation.type +
+              " refurbishment of " +
+              tempQuotation.data().size +
+              " sqm in London the cost would be £13000",
             type: "left",
             createdAt: new Date()
           }

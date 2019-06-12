@@ -6,12 +6,9 @@ import { withFirebase } from "react-redux-firebase";
 import { compose } from "redux";
 import { anonymousCreateChat } from "./../Auth/authActions";
 
-
-
 const mapState = state => ({
   auth: state.firebase.auth,
   loading: state.async.loading
-
 });
 
 const actions = {
@@ -25,19 +22,26 @@ class RightComponent extends Component {
   };
 
   render() {
-    const {loading} = this.props
+    const { loading } = this.props;
     return (
       <div className='rightComponent'>
         <div class=''>
-          <h5 class='playfairTag'>read my mind </h5>
-          <h1 class='h1tag'>A better way to create a quotation from your refurbishment </h1>
+          <h5 class='playfairTag'>quotify </h5>
+          <h1 class='h1tag'>
+            A better way to create a quotation for your refurbishment{" "}
+          </h1>
           <div class='Separator' />
           <p class='pTag'>
-            Try our AI powered chat that will talk with your client and collect precious information about your brief in an human way
+            Try our AI powered chat that will talk with your client, collect
+            precious information about your brief in an friendly way, and
+            automatically create a quotation.
           </p>
         </div>
-       
-        <Button className='mainButton' onClick={this.handleSignIn} >  {loading ?  'Loading' : "Start"}</Button>
+
+        <Button className='mainButton' onClick={this.handleSignIn}>
+          {" "}
+          {loading ? "Loading" : "Start"}
+        </Button>
       </div>
     );
   }

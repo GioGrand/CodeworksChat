@@ -16,9 +16,8 @@ const actions = {
 const mapState = state => ({
   auth: state.firebase.auth,
   posts: state.firestore.ordered.myposts,
-  mychat: state.firebase.profile.personal_chat,
- // activeChat: state.firestore.ordered.activeChat[0]
-
+  mychat: state.firebase.profile.personal_chat
+  // activeChat: state.firestore.ordered.activeChat[0]
 });
 
 class ChatDashboard extends Component {
@@ -27,7 +26,7 @@ class ChatDashboard extends Component {
     console.log(mychat);
     return (
       <React.Fragment>
-    <ChatList posts={posts}  /> 
+        <ChatList posts={posts} />
         <ChatForm />
       </React.Fragment>
     );

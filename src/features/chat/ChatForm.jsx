@@ -22,34 +22,34 @@ class ChatForm extends Component {
   render() {
     const { loading, createChat, error } = this.props;
     return (
-        <Form
-          autoComplete='off'
-          className='myForm'
-          onSubmit={this.props.handleSubmit(this.handleSubmit)}
-        >
-          <Row className='d-flex justify-content-between align-items-center'>
-            <Col xs={10} md={10}>
-              <Field
-                name='content'
-                className='myFormControl'
-                placeholder='type your post here...'
-                type='text'
-                component={TextInput}
-                autoFocus={true}
-              />
-              {error && (
-                <Form.Group controlId='formBasicEmail'>
-                  <Form.Text className='text-muted'>{error}</Form.Text>
-                </Form.Group>
-              )}
-            </Col>
-            <Col xs={2} md={2}>
-              <Button variant='primary mainButton' type='submit'>
-                {loading ? "…" : ">"}
-              </Button>
-            </Col>
-          </Row>
-        </Form>
+      <Form
+        autoComplete='off'
+        className='myForm'
+        onSubmit={this.props.handleSubmit(this.handleSubmit)}
+      >
+        <Row className='d-flex justify-content-between align-items-center'>
+          <Col xs={10} md={10}>
+            <Field
+              name='content'
+              className='myFormControl'
+              placeholder='type your post here...'
+              type='text'
+              component={TextInput}
+              autoFocus={true}
+            />
+            {error && (
+              <Form.Group controlId='formBasicEmail'>
+                <Form.Text className='text-muted'>{error}</Form.Text>
+              </Form.Group>
+            )}
+          </Col>
+          <Col xs={2} md={2}>
+            <Button variant='primary mainButton' type='submit'>
+              {loading ? "…" : ">"}
+            </Button>
+          </Col>
+        </Row>
+      </Form>
     );
   }
 }
